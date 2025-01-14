@@ -1,0 +1,27 @@
+<package format="2">
+  <name>marine_radar_tracker</name>
+  <version>0.0.0</version>
+  <description>
+    Finds and tracks targets from marine radars
+  </description>
+
+  <maintainer email="roland@ccom.unh.edu">Roland Arsenault</maintainer>
+  <author>Roland Arsenault</author>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>geometry_msgs</depend>
+  <depend>grid_map_ros</depend>
+  <depend>marine_sensor_msgs</depend>
+  <depend>pcl_ros</depend>
+  <depend>project11_msgs</depend>
+  <depend>rosbag</depend>
+  <depend>roscpp</depend>
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+  <depend>visualization_msgs</depend>
+
+  <export>
+  </export>
+</package>
