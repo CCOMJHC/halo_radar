@@ -1,0 +1,117 @@
+class update_marine_sensor_msgs_RadarControlItem_todo(MessageUpdateRule):
+	old_type = "marine_sensor_msgs/RadarControlItem"
+	old_full_text = """
+# Message type to relay radar settings and how to control them.
+
+uint8 CONTROL_TYPE_FLOAT           = 0
+uint8 CONTROL_TYPE_FLOAT_WITH_AUTO = 1
+uint8 CONTROL_TYPE_ENUM            = 2
+
+string   name          # Name of the control
+string   value         # Current value to display
+string   label         # Label used for user interfaces
+
+uint8    type          # Type of value, see above CONTROL_TYPE constants
+
+float32  min_value     # Minimum possible value
+float32  max_value     # Maximum possible value
+
+string[] enums         # Possible enums
+"""
+
+	new_type = "marine_radar_control_msgs/RadarControlItem"
+	new_full_text = """
+# Message type to relay radar settings and how to control them.
+
+uint8 CONTROL_TYPE_FLOAT           = 0
+uint8 CONTROL_TYPE_FLOAT_WITH_AUTO = 1
+uint8 CONTROL_TYPE_ENUM            = 2
+
+string   name          # Name of the control
+string   value         # Current value to display
+string   label         # Label used for user interfaces
+
+uint8    type          # Type of value, see above CONTROL_TYPE constants
+
+float32  min_value     # Minimum possible value
+float32  max_value     # Maximum possible value
+
+string[] enums         # Possible enums
+"""
+
+	order = 0
+	migrated_types = []
+
+	valid = True
+
+	def update(self, old_msg, new_msg):
+		new_msg.name = old_msg.name
+		new_msg.value = old_msg.value
+		new_msg.label = old_msg.label
+
+		new_msg.type = old_msg.type
+
+		new_msg.min_value = old_msg.min_value
+		new_msg.max_value = old_msg.max_value
+
+		self.migrate_array(old_msg.enums, new_msg.enums, "string")
+
+
+
+class update_marine_msgs_RadarControlItem_todo(MessageUpdateRule):
+	old_type = "marine_msgs/RadarControlItem"
+	old_full_text = """
+# Message type to relay radar settings and how to control them.
+
+uint8 CONTROL_TYPE_FLOAT           = 0
+uint8 CONTROL_TYPE_FLOAT_WITH_AUTO = 1
+uint8 CONTROL_TYPE_ENUM            = 2
+
+string   name          # Name of the control
+string   value         # Current value to display
+string   label         # Label used for user interfaces
+
+uint8    type          # Type of value, see above CONTROL_TYPE constants
+
+float32  min_value     # Minimum possible value
+float32  max_value     # Maximum possible value
+
+string[] enums         # Possible enums
+"""
+
+	new_type = "marine_radar_control_msgs/RadarControlItem"
+	new_full_text = """
+# Message type to relay radar settings and how to control them.
+
+uint8 CONTROL_TYPE_FLOAT           = 0
+uint8 CONTROL_TYPE_FLOAT_WITH_AUTO = 1
+uint8 CONTROL_TYPE_ENUM            = 2
+
+string   name          # Name of the control
+string   value         # Current value to display
+string   label         # Label used for user interfaces
+
+uint8    type          # Type of value, see above CONTROL_TYPE constants
+
+float32  min_value     # Minimum possible value
+float32  max_value     # Maximum possible value
+
+string[] enums         # Possible enums
+"""
+
+	order = 0
+	migrated_types = []
+
+	valid = True
+
+	def update(self, old_msg, new_msg):
+		new_msg.name = old_msg.name
+		new_msg.value = old_msg.value
+		new_msg.label = old_msg.label
+
+		new_msg.type = old_msg.type
+
+		new_msg.min_value = old_msg.min_value
+		new_msg.max_value = old_msg.max_value
+
+		self.migrate_array(old_msg.enums, new_msg.enums, "string")

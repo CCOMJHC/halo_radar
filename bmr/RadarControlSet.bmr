@@ -1,0 +1,125 @@
+class update_marine_sensor_msgs_RadarControlSet_680e6d62359bcb5ab9bbb989dfca2b19(MessageUpdateRule):
+	old_type = "marine_sensor_msgs/RadarControlSet"
+	old_full_text = """
+# Set of RadarControlItems
+
+RadarControlItem[] items
+
+================================================================================
+MSG: marine_sensor_msgs/RadarControlItem
+# Message type to relay radar settings and how to control them.
+
+uint8 CONTROL_TYPE_FLOAT           = 0
+uint8 CONTROL_TYPE_FLOAT_WITH_AUTO = 1
+uint8 CONTROL_TYPE_ENUM            = 2
+
+string   name          # Name of the control
+string   value         # Current value to display
+string   label         # Label used for user interfaces
+
+uint8    type          # Type of value, see above CONTROL_TYPE constants
+
+float32  min_value     # Minimum possible value
+float32  max_value     # Maximum possible value
+
+string[] enums         # Possible enums
+"""
+
+	new_type = "marine_radar_control_msgs/RadarControlSet"
+	new_full_text = """
+# Set of RadarControlItems
+
+RadarControlItem[] items
+
+================================================================================
+MSG: marine_radar_control_msgs/RadarControlItem
+# Message type to relay radar settings and how to control them.
+
+uint8 CONTROL_TYPE_FLOAT           = 0
+uint8 CONTROL_TYPE_FLOAT_WITH_AUTO = 1
+uint8 CONTROL_TYPE_ENUM            = 2
+
+string   name          # Name of the control
+string   value         # Current value to display
+string   label         # Label used for user interfaces
+
+uint8    type          # Type of value, see above CONTROL_TYPE constants
+
+float32  min_value     # Minimum possible value
+float32  max_value     # Maximum possible value
+
+string[] enums         # Possible enums
+"""
+
+	order = 0
+	migrated_types = [
+		("marine_sensor_msgs/RadarControlItem","marine_radar_control_msgs/RadarControlItem"),]
+
+	valid = True
+
+	def update(self, old_msg, new_msg):
+		self.migrate_array(old_msg.items, new_msg.items, "marine_radar_control_msgs/RadarControlItem")
+
+
+class update_marine_msgs_RadarControlSet_680e6d62359bcb5ab9bbb989dfca2b19(MessageUpdateRule):
+	old_type = "marine_msgs/RadarControlSet"
+	old_full_text = """
+# Set of RadarControlItems
+
+RadarControlItem[] items
+
+================================================================================
+MSG: marine_msgs/RadarControlItem
+# Message type to relay radar settings how to control them.
+
+uint8 CONTROL_TYPE_FLOAT           = 0
+uint8 CONTROL_TYPE_FLOAT_WITH_AUTO = 1
+uint8 CONTROL_TYPE_ENUM            = 2
+
+string   name          # Name of the control
+string   value         # Current value to display
+string   label         # Label used for user interfaces
+
+uint8    type          # Type of value, see above CONTROL_TYPE constants
+
+float32  min_value     # Minimum possible value
+float32  max_value     # Maximum possible value
+
+string[] enums         # Possible enums
+"""
+
+	new_type = "marine_radar_control_msgs/RadarControlSet"
+	new_full_text = """
+# Set of RadarControlItems
+
+RadarControlItem[] items
+
+================================================================================
+MSG: marine_radar_control_msgs/RadarControlItem
+# Message type to relay radar settings and how to control them.
+
+uint8 CONTROL_TYPE_FLOAT           = 0
+uint8 CONTROL_TYPE_FLOAT_WITH_AUTO = 1
+uint8 CONTROL_TYPE_ENUM            = 2
+
+string   name          # Name of the control
+string   value         # Current value to display
+string   label         # Label used for user interfaces
+
+uint8    type          # Type of value, see above CONTROL_TYPE constants
+
+float32  min_value     # Minimum possible value
+float32  max_value     # Maximum possible value
+
+string[] enums         # Possible enums
+"""
+
+	order = 0
+	migrated_types = [
+		("marine_msgs/RadarControlItem","marine_radar_control_msgs/RadarControlItem"),
+	]
+
+	valid = True
+
+	def update(self, old_msg, new_msg):
+		self.migrate_array(old_msg.items, new_msg.items, "marine_radar_control_msgs/RadarControlItem")

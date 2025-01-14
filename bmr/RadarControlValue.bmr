@@ -1,0 +1,52 @@
+class update_marine_sensor_msgs_RadarControlValue_cf57fdc6617a881a88c16e768132149c(MessageUpdateRule):
+	old_type = "marine_sensor_msgs/RadarControlValue"
+	old_full_text = """
+# Used for sending changes to Radar settings.
+
+string key                     # tag label
+string value                   # corresponding value
+"""
+
+	new_type = "marine_radar_control_msgs/RadarControlValue"
+	new_full_text = """
+# Used for sending changes to Radar settings.
+
+string key                     # tag label
+string value                   # corresponding value
+"""
+
+	order = 0
+	migrated_types = []
+
+	valid = True
+
+	def update(self, old_msg, new_msg):
+		new_msg.key = old_msg.key
+		new_msg.value = old_msg.value
+
+class update_marine_msgs_KeyValue_cf57fdc6617a881a88c16e768132149c(MessageUpdateRule):
+	old_type = "marine_msgs/KeyValue"
+	old_full_text = """
+# This is equivalent to diagnostic_msgs/KeyValue, repeated here to
+# avoid introducing a trivial stack dependency.
+
+string key                     # tag label
+string value                   # corresponding value
+"""
+
+	new_type = "marine_radar_control_msgs/RadarControlValue"
+	new_full_text = """
+# Used for sending changes to Radar settings.
+
+string key                     # tag label
+string value                   # corresponding value
+"""
+
+	order = 0
+	migrated_types = []
+
+	valid = True
+
+	def update(self, old_msg, new_msg):
+		new_msg.key = old_msg.key
+		new_msg.value = old_msg.value

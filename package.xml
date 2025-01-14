@@ -1,0 +1,25 @@
+<package format="2">
+    <name>marine_radar_control_msgs</name>
+    <version>0.0.1</version>
+    <description>
+    This package defines message types used to control marine radars.
+    </description>
+    <maintainer email="roland@ccom.unh.edu">Roland Arsenault</maintainer>
+    <license>BSD</license>
+    
+    <buildtool_depend>catkin</buildtool_depend>
+    
+    <build_depend>message_generation</build_depend>
+    <build_depend>std_msgs</build_depend>
+
+    <exec_depend>message_runtime</exec_depend>
+    <exec_depend>std_msgs</exec_depend>
+
+    <depend>rosbag_migration_rule</depend>
+    <export>
+        <rosbag_migration_rule rule_file="bmr/RadarControlItem.bmr"/>
+        <rosbag_migration_rule rule_file="bmr/RadarControlSet.bmr"/>
+        <rosbag_migration_rule rule_file="bmr/RadarControlValue.bmr"/>
+    </export>
+
+</package>
