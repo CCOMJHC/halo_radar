@@ -12,7 +12,7 @@
 
 #include "halo_radar_structures.h"
 
-namespace halo_radar
+namespace simrad_halo_radar
 {
     
 bool validInterface(ifaddrs const *i);
@@ -143,6 +143,6 @@ private:
     };
 };
 
-} // namespace halo_radar
+} // namespace simrad_halo_radar
 
 #endif

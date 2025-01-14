@@ -9,10 +9,10 @@
 #include <future>
 #include "angular_speed_estimator.h"
 
-class RosRadar : public halo_radar::Radar
+class RosRadar : public simrad_halo_radar::Radar
 {
 public:
-  RosRadar(halo_radar::AddressSet const &addresses) : halo_radar::Radar(addresses)
+  RosRadar(simrad_halo_radar::AddressSet const &addresses) : simrad_halo_radar::Radar(addresses)
   {
     ros::NodeHandle n;
     m_data_pub = n.advertise<marine_sensor_msgs::RadarSector>(addresses.label + "/data", 10);
@@ -26,8 +26,8 @@ public:
     startThreads();
   }
 
- protected:
-  void processData(std::vector<halo_radar::Scanline> const &scanlines) override
+protected:
+  void processData(std::vector<simrad_halo_radar::Scanline> const &scanlines) override
   {
     if(scanlines.empty())
       return;
@@ -186,7 +186,7 @@ public:
   AngularSpeedEstimator m_estimator;
 };
 
-std::shared_ptr<halo_radar::HeadingSender> headingSender;
+std::shared_ptr<simrad_halo_radar::HeadingSender> headingSender;
 
 void odometryCallback(const nav_msgs::Odometry::ConstPtr msg)
 {
@@ -200,7 +200,7 @@ void odometryCallback(const nav_msgs::Odometry::ConstPtr msg)
 
 int main(int argc, char **argv)
 {
-  ros::init(argc, argv, "halo_radar");
+  ros::init(argc, argv, "simrad_halo_radar");
   std::vector<std::shared_ptr<RosRadar> > radars;
   std::vector<uint32_t> hostIPs;
   if (ros::param::has("~hostIPs"))
@@ -208,24 +208,24 @@ int main(int argc, char **argv)
     std::vector<std::string> hostIPstrings;
     ros::param::get("~hostIPs", hostIPstrings);
     for (auto s: hostIPstrings)
-      hostIPs.push_back(halo_radar::ipAddressFromString(s));
+      hostIPs.push_back(simrad_halo_radar::ipAddressFromString(s));
   }
 
   std::future<void> scanResult = std::async(std::launch::async, [&] {
     while(radars.empty())
     {
-      std::vector<halo_radar::AddressSet> as;
+      std::vector<simrad_halo_radar::AddressSet> as;
       if(hostIPs.empty())
-        as = halo_radar::scan();
+        as = simrad_halo_radar::scan();
       else
-        as = halo_radar::scan(hostIPs);
+        as = simrad_halo_radar::scan(hostIPs);
       if(as.empty())
         ROS_WARN_STREAM("No radars found!");
       for (auto a : as)
       {
         radars.push_back(std::shared_ptr<RosRadar>(new RosRadar(a)));
         if(!headingSender)
-          headingSender = std::shared_ptr<halo_radar::HeadingSender>(new halo_radar::HeadingSender(a.interface));
+          headingSender = std::shared_ptr<simrad_halo_radar::HeadingSender>(new simrad_halo_radar::HeadingSender(a.interface));
       }
     }
   });

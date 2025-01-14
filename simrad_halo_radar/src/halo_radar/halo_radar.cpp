@@ -8,7 +8,7 @@
 #include <iostream>
 #include <unistd.h>
 
-namespace halo_radar
+namespace simrad_halo_radar
 {
     
 bool validInterface(const ifaddrs* i)

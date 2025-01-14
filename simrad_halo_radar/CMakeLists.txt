@@ -1,7 +1,9 @@
-cmake_minimum_required(VERSION 2.8.3)
-project(halo_radar)
+cmake_minimum_required(VERSION 3.8)
+project(simrad_halo_radar)
 
-add_compile_options(-std=c++11)
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 14)
+endif()
 
 find_package(catkin REQUIRED COMPONENTS
     marine_radar_control_msgs

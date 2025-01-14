@@ -1,13 +1,12 @@
-# ROS Driver for the Halo series of marine radars
+# ROS Driver for the Simrad Halo series of marine radars
 
 This driver interfaces with Simrad HALO radar via multicast UDP communication.
 
 ## Installation
 
-Clone this repo into your workspace and make sure you have the following dependant packages:
+Clone this repo into your workspace.
 
-* marine_sensor_msgs (pending rosdistro inclusion): https://github.com/apl-ocean-engineering/marine_msgs
-* marine_radar_control_messages: https://github.com/CCOMJHC/marine_radar_control_msgs
+Use rosdep to resolve dependencies not included in this repository.
 
 Build your workspace.
 

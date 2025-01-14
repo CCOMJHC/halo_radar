@@ -36,7 +36,7 @@
  */
 
 
-namespace halo_radar
+namespace simrad_halo_radar
 {
 
 #pragma pack(push, 1)
